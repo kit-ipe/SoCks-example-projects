@@ -32,6 +32,7 @@
     ```
 
 2. Write the image to an SD card. Identify the device you want to write to e.g. with `lsblk` and unmount it.
+
     **WARNING:** Before writing to a device, first identify it, e.g. with `lsblk`, and unmount it.
     ```
     $ sudo dd if=zcu102-example-project_sd_card.img of=/dev/sdX bs=1M status=progress
