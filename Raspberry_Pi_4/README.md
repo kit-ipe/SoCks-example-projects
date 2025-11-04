@@ -6,7 +6,7 @@
 
 2. Move to this directory.
     ```
-    $ cd SoCks-example-projects/Raspberry\_Pi\_4
+    $ cd SoCks-example-projects/Raspberry_Pi_4
     ```
 
 3. Print the complete project configuration to see what SoCks will build.
@@ -38,7 +38,7 @@
     $ sudo dd if=rpi4-example-project_sd_card.img of=/dev/sdX bs=1M status=progress
     ```
 
-3. The bootloader of the Raspberry Pi is picky when it comes to the boot partition. It does not accept the format created by SoCks (or mkfs). For now I know only about the following workaround that fixes this: copy all files from the bootfs partition to your PC, format the bootfs partition with gparted to FAT16 or FAT32, and after that copy the files back to the boot partition.
+3. The bootloader of the Raspberry Pi is picky when it comes to the boot partition. It does not accept the format created by SoCks (or mkfs). Currently, I only know of the following workaround to fix this problem: Copy all files from the bootfs partition to your PC, format the bootfs partition to FAT16 or FAT32 using gparted, and then copy the files back to the boot partition.
 
 ## Using the Example Image
 
