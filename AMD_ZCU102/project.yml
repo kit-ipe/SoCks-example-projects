@@ -28,7 +28,7 @@ blocks:
     project:
       release: "trixie"
       mirror: "http://ftp.ch.debian.org/debian/"
-      addl_pkgs: ["sudo", "python3", "busybox", "network-manager", "systemd-timesyncd", "openssh-server", "nano", "vim"]
+      addl_pkgs: ["sudo", "python3", "busybox", "device-tree-compiler", "network-manager", "systemd-timesyncd", "openssh-server", "nano", "vim"]
       users:
         - name: "root"
           pw_hash: "$6$vZIHKtcF/ibXBtIg$8hD7jbElXZVHNBhUIL4G97lqgsZ.7hq1YtjwdZpG.YRwqFy9kWwACLgf4hEFbXQYr81X08B2EJIDSKO3ZeBF4/" # debian

@@ -1,0 +1,54 @@
+---
+import:
+  - project-raspberrypi-default.yml
+project:
+  name: "rpi4-example-project"
+  socks_version: "0.0.post1.dev280"
+  rpi_model: "RPi_4B"
+external_tools:
+  container_tool: "docker"
+blocks:
+  kernel:
+    project:
+      defconfig_target: "bcm2711_defconfig"
+      build_srcs:
+        branch: "rpi-6.12.y"
+  ssbl:
+    source: "build"
+    builder: "RaspberryPi_UBoot_SSBL_Builder"
+    project:
+      build_srcs:
+        source: "https://source.denx.de/u-boot/u-boot.git"
+        branch: "v2025.07"
+      add_build_info: false
+      config_snippets:
+        - Disable-efimkcapsule-command-to-circumvent-missing-dependencies.cfg
+    container:
+      image: "kernel-builder-alma9"
+      tag: "socks"
+  rootfs:
+    source: "build"
+    builder: "RaspberryPi_Debian_RootFS_Builder"
+    project:
+      release: "trixie"
+      mirror: "http://ftp.de.debian.org/debian/"
+      addl_pkgs: ["sudo", "python3", "busybox", "device-tree-compiler", "network-manager", "systemd-timesyncd", "openssh-server", "nano", "vim"]
+      users:
+        - name: "root"
+          pw_hash: "$6$vZIHKtcF/ibXBtIg$8hD7jbElXZVHNBhUIL4G97lqgsZ.7hq1YtjwdZpG.YRwqFy9kWwACLgf4hEFbXQYr81X08B2EJIDSKO3ZeBF4/" # debian
+        - name: "rpi"
+          pw_hash: "$6$/6rrIsDbsTOztS8f$sMduFHDfovFHbXjaOyKsgaOvJEMU1/fXbWppNx38RyiueHIIG9bsAonU3.K1XPFOk.NVdXWFh1dLXIA.7NIFE0" # rpi4
+          groups: ["sudo", "dialout"]
+      add_build_info: true
+      dependencies:
+        kernel: "temp/kernel/output/bp_kernel_*.tar.gz"
+    container:
+      image: "debian-rootfs-builder-debian13"
+      tag: "socks"
+  image:
+    project:
+      size_boot_partition: 500
+      size_rootfs_partition: 2000
+      dependencies:
+        ssbl: "temp/ssbl/output/bp_ssbl_*.tar.gz"
+        rootfs: "temp/rootfs/output/bp_rootfs_*.tar.gz"
