@@ -24,7 +24,7 @@ blocks:
         - name: "root"
           pw_hash: "$6$vZIHKtcF/ibXBtIg$8hD7jbElXZVHNBhUIL4G97lqgsZ.7hq1YtjwdZpG.YRwqFy9kWwACLgf4hEFbXQYr81X08B2EJIDSKO3ZeBF4/" # debian
         - name: "rpi"
-          pw_hash: "$6$/6rrIsDbsTOztS8f$sMduFHDfovFHbXjaOyKsgaOvJEMU1/fXbWppNx38RyiueHIIG9bsAonU3.K1XPFOk.NVdXWFh1dLXIA.7NIFE0" # rpi4
+          pw_hash: "$6$jOf/Aizd9FtXL8S0$4ytgBLOSvD85o6dEHzMHUW8381LdHtIzbVyaG5emUC0dcjodBNpZKmdX1VvWtMho5bEU02cj7X.ckdmu6zUvo1" # rpi5
           groups: ["sudo", "dialout"]
       add_build_info: true
       dependencies:
