@@ -3,7 +3,7 @@ import:
   - project-zynqmp-default.yml
 project:
   name: "zcu102-example-project"
-  socks_version: "0.0.post1.dev295"
+  socks_version: "0.0.post1.dev296"
 external_tools:
   xilinx:
     version: "2024.2"
@@ -12,9 +12,9 @@ blocks:
     builder: "ZynqMP_AMD_Vivado_Hog_Builder"
     project:
       build_srcs:
-        source: "ssh://git@github.com/mffuchs/ZCU102-SoCks-vivado-test-project.git"
+        source: "ssh://git@github.com/kit-ipe/SoCks-Vivado-example-project-ZCU102.git"
         branch: "main"
-      name: "zcu102-socks-vivado-test-project"
+      name: "zcu102-socks-vivado-example-project"
     container:
       image: "amd-xilinx-tools-alma9"
       tag: "socks"
