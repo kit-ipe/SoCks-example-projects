@@ -1,13 +1,9 @@
 / {
-	aliases {
-    /* Select UARTs */
-		serial0 = "/axi/serial@ff000000";
-		serial1 = "/axi/serial@ff010000";
-	};
-	
 	chosen {
 		/* Bootargs for SD boot */
 		bootargs = " earlycon clk_ignore_unused root=/dev/mmcblk0p2 rw rootwait";
+    /* Select UART */
+    stdout-path = "serial0:115200n8";
 	};
 };
 

@@ -3,7 +3,7 @@ import:
   - project-zynqmp-default.yml
 project:
   name: "zcu102-example-project"
-  socks_version: "0.0.post1.dev296"
+  socks_version: "0.0.post1.dev313"
 external_tools:
   xilinx:
     version: "2024.2"
